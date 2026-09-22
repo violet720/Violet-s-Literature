@@ -3,25 +3,234 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Violet's Literature</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f5f2eb;
+      color: #292824;
+      font-family:
+        "Songti TC",
+        "Noto Serif TC",
+        "PMingLiU",
+        serif;
+      line-height: 1.9;
+    }
+
+    /* 上方導覽 */
+    nav {
+      width: 100%;
+      padding: 28px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: Georgia, serif;
+    }
+
+    .brand {
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .nav-links a {
+      color: #292824;
+      text-decoration: none;
+      margin-left: 28px;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    /* 首頁主視覺 */
+    .hero {
+      min-height: 72vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 900px;
+      margin: auto;
+      padding: 60px 8%;
+    }
+
+    .small-title {
+      font-family: Georgia, serif;
+      font-size: 12px;
+      letter-spacing: 4px;
+      margin-bottom: 25px;
+      opacity: 0.55;
+    }
+
+    h1 {
+      font-size: clamp(46px, 8vw, 86px);
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      margin: 0 0 32px 0;
+    }
+
+    .intro {
+      font-size: 17px;
+      letter-spacing: 0.12em;
+      line-height: 2.2;
+      color: #57544d;
+    }
+
+    /* 作品區 */
+    .works {
+      max-width: 900px;
+      margin: auto;
+      padding: 100px 8% 130px;
+    }
+
+    .section-title {
+      font-family: Georgia, serif;
+      font-size: 12px;
+      letter-spacing: 4px;
+      margin-bottom: 45px;
+      opacity: 0.55;
+    }
+
+    .work {
+      border-top: 1px solid #cbc6ba;
+      padding: 28px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .work:last-child {
+      border-bottom: 1px solid #cbc6ba;
+    }
+
+    .work a {
+      color: #292824;
+      text-decoration: none;
+      font-size: 22px;
+      letter-spacing: 0.08em;
+    }
+
+    .work a:hover {
+      opacity: 0.55;
+    }
+
+    .date {
+      font-family: Georgia, serif;
+      font-size: 12px;
+      color: #88837a;
+      letter-spacing: 1px;
+    }
+
+    footer {
+      padding: 50px 8%;
+      text-align: center;
+      font-family: Georgia, serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #88837a;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        padding: 22px 6%;
+      }
+
+      .nav-links a {
+        margin-left: 14px;
+      }
+
+      .hero {
+        padding: 40px 8%;
+      }
+
+      .intro {
+        font-size: 15px;
+      }
+
+      .work {
+        display: block;
+      }
+
+      .date {
+        display: block;
+        margin-top: 8px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <h1>還未裝訂。</h1>
 
-  <p>
-    人生是一本還未裝訂的書籍，<br>
-    而我仍在編輯。
-  </p>
+  <nav>
+    <div class="brand">Violet's Literature</div>
 
-  <hr>
+    <div class="nav-links">
+      <a href="#works">Works</a>
+      <a href="#about">About</a>
+    </div>
+  </nav>
 
-  <h2>Works</h2>
 
-  <p>夜月</p>
+  <main>
+
+    <section class="hero" id="about">
+
+      <div class="small-title">
+        WORDS · MEMORIES · BECOMING
+      </div>
+
+      <h1>還未裝訂。</h1>
+
+      <div class="intro">
+        人生是一本還未裝訂的書籍，<br>
+        而我仍在編輯。<br><br>
+
+        收錄散落於不同年歲裡的文字與影像。<br>
+        關於青春、告別、失去、選擇，<br>
+        以及那些仍在成為的自己。
+      </div>
+
+    </section>
+
+
+    <section class="works" id="works">
+
+      <div class="section-title">
+        SELECTED WORKS
+      </div>
+
+      <div class="work">
+        <a href="#">夜月</a>
+        <span class="date">2025.01.09</span>
+      </div>
+
+      <div class="work">
+        <a href="#">冬末・光</a>
+        <span class="date">2025.01.30</span>
+      </div>
+
+      <div class="work">
+        <a href="#">The Last Game</a>
+        <span class="date">2025.05.15</span>
+      </div>
+
+      <div class="work">
+        <a href="#">二十二歲的臺南女子圖鑑</a>
+        <span class="date">2026</span>
+      </div>
+
+    </section>
+
+  </main>
+
 
   <footer>
-    <p>Text & Photography by Violet.</p>
+    TEXT & PHOTOGRAPHY BY VIOLET
   </footer>
+
 </body>
 </html>
