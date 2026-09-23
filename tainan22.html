@@ -1,1 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>二十二歲的臺南女子圖鑑｜Violet's Literature</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f5f2eb;
+      color: #292824;
+      font-family: "Songti TC", "Noto Serif TC", "PMingLiU", serif;
+      line-height: 2.1;
+    }
+
+    .page {
+      max-width: 720px;
+      margin: auto;
+      padding: 70px 8% 120px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 90px;
+      color: #77736b;
+      text-decoration: none;
+      font-family: Georgia, serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    .back:hover {
+      opacity: 0.55;
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      margin: 0 0 12px;
+    }
+
+    .date {
+      font-family: Georgia, serif;
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: #918c82;
+      margin-bottom: 70px;
+    }
+.hero-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 0 70px;
+}
+    article {
+      font-size: 16px;
+      letter-spacing: 0.08em;
+    }
+
+    article p {
+      margin: 0 0 32px;
+    }
+
+    .credit {
+      margin-top: 90px;
+      padding-top: 25px;
+      border-top: 1px solid #cbc6ba;
+      font-family: Georgia, serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #88837a;
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding-top: 45px;
+      }
+
+      .back {
+        margin-bottom: 60px;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      article {
+        font-size: 15px;
+      }
+    }
+    #music-button {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 1000;
+
+  background: rgba(245, 242, 235, 0.92);
+  border: 1px solid #cbc6ba;
+  padding: 10px 16px;
+
+  color: #77736b;
+  font-family: Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+
+  cursor: pointer;
+}
+
+#music-button:hover {
+  opacity: 0.6;
+}
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <a class="back" href="index.html">← BACK TO WORKS</a>
+
+<header>
+    <h1>二十二歲的臺南女子圖鑑</h1>
+    <div class="date">2026</div>
+</header>
+
+<article>
+
+    <p>
+        回憶起十來歲的自己，身上總帶著幾分銳氣與傲氣。
+        那時意氣風發的我總愛說：「等我畢業，我一定、一定要去臺北生活跟工作！！
+        然後只跟臺北人在一起！」
+    </p>
+
+    <p>
+        但自從上了大學，真正離開家鄉以後，才發現自己原來比想像中更眷戀這塊純樸的土地。
+        以前的我總說好想家，後來才慢慢明白，我想念的「家」好像從來不只是一幢大到足以玩捉迷藏的房子，
+        而是整座臺南——是在喧囂裡仍能找到一點寂靜，是走在熟悉的街道上，不知不覺就能讓心安定下來的地方。
+        我尤其喜歡深夜鑽進友愛街的小巷裡，背著相機漫無目的地走走晃晃，
+        在不起眼的角落探索那些平凡又可愛的小日常。
+    </p>
+
+    <p>
+        我想，我應該不會後悔那個放棄竹科 offer、選擇回到臺南的自己。
+        我放棄了一條路，同時也選擇了另一種生活。
+        畢竟，能待在一個讓自己感到溫暖的地方，本身就是一種幸福吧☆彡
+    </p>
+
+</article>
+
+<div class="credit">
+    TEXT & PHOTOGRAPHY BY VIOLET
+</div>
+
+    </article>
+
+    <div class="credit">
+      TEXT & PHOTOGRAPHY BY VIOLET
+    </div>
+
+  </main>
+<audio id="bgm" loop>
+  <source src="river.mp3" type="audio/mpeg">
+</audio>
+
+<button id="music-button" onclick="toggleMusic()">♪ PLAY</button>
+
+<script>
+  const bgm = document.getElementById("bgm");
+  const musicButton = document.getElementById("music-button");
+
+  // 讀取上一頁留下的播放位置
+  const savedTime = sessionStorage.getItem("bgmTime");
+  const wasPlaying = sessionStorage.getItem("bgmPlaying") === "true";
+
+  if (savedTime) {
+    bgm.currentTime = parseFloat(savedTime);
+  }
+
+  function toggleMusic() {
+    if (bgm.paused) {
+      bgm.play();
+      musicButton.textContent = "Ⅱ PAUSE";
+      sessionStorage.setItem("bgmPlaying", "true");
+    } else {
+      bgm.pause();
+      musicButton.textContent = "♪ PLAY";
+      sessionStorage.setItem("bgmPlaying", "false");
+    }
+  }
+
+  // 播放時持續記錄目前秒數
+  bgm.addEventListener("timeupdate", () => {
+    sessionStorage.setItem("bgmTime", bgm.currentTime);
+  });
+
+  // 如果上一頁正在播放，進入新頁後嘗試接著播放
+  bgm.addEventListener("loadedmetadata", () => {
+    const time = sessionStorage.getItem("bgmTime");
+
+    if (time) {
+      bgm.currentTime = parseFloat(time);
+    }
+
+    if (wasPlaying) {
+      bgm.play()
+        .then(() => {
+          musicButton.textContent = "Ⅱ PAUSE";
+        })
+        .catch(() => {
+          // Safari 若阻擋自動續播，就讓使用者再按一次
+          musicButton.textContent = "♪ PLAY";
+        });
+    }
+  });
+
+  window.addEventListener("beforeunload", () => {
+    sessionStorage.setItem("bgmTime", bgm.currentTime);
+    sessionStorage.setItem("bgmPlaying", !bgm.paused);
+  });
+</script>
+</body>
+</html>
 
