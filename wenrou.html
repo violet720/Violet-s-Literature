@@ -183,7 +183,40 @@
     <div class="credit">
       TEXT BY VIOLET
     </div>
-bgm.addEventListener("loadedmetadata", () => {
+<audio id="bgm" loop>
+  <source src="river.mp3" type="audio/mpeg">
+</audio>
+
+<button id="music-button" onclick="toggleMusic()">♪ PLAY</button>
+
+<script>
+  const bgm = document.getElementById("bgm");
+  const musicButton = document.getElementById("music-button");
+
+  const savedTime = sessionStorage.getItem("bgmTime");
+  const wasPlaying = sessionStorage.getItem("bgmPlaying") === "true";
+
+  if (savedTime) {
+    bgm.currentTime = parseFloat(savedTime);
+  }
+
+  function toggleMusic() {
+    if (bgm.paused) {
+      bgm.play();
+      musicButton.textContent = "Ⅱ PAUSE";
+      sessionStorage.setItem("bgmPlaying", "true");
+    } else {
+      bgm.pause();
+      musicButton.textContent = "♪ PLAY";
+      sessionStorage.setItem("bgmPlaying", "false");
+    }
+  }
+
+  bgm.addEventListener("timeupdate", () => {
+    sessionStorage.setItem("bgmTime", bgm.currentTime);
+  });
+
+  bgm.addEventListener("loadedmetadata", () => {
     const time = sessionStorage.getItem("bgmTime");
 
     if (time) {
@@ -206,29 +239,9 @@ bgm.addEventListener("loadedmetadata", () => {
     sessionStorage.setItem("bgmPlaying", !bgm.paused);
   });
 </script>
-  </main>
-bgm.addEventListener("loadedmetadata", () => {
-    const time = sessionStorage.getItem("bgmTime");
 
-    if (time) {
-      bgm.currentTime = parseFloat(time);
-    }
-
-    if (wasPlaying) {
-      bgm.play()
-        .then(() => {
-          musicButton.textContent = "Ⅱ PAUSE";
-        })
-        .catch(() => {
-          musicButton.textContent = "♪ PLAY";
-        });
-    }
-  });
-
-  window.addEventListener("beforeunload", () => {
-    sessionStorage.setItem("bgmTime", bgm.currentTime);
-    sessionStorage.setItem("bgmPlaying", !bgm.paused);
-  });
+</body>
+</html>
 </script>
 </body>
 </html>
