@@ -5,24 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>你的少年念想｜Violet's Literature</title>
-#music-button {
-  position: fixed;
-  right: 28px;
-  bottom: 28px;
-  z-index: 1000;
-  background: rgba(245, 242, 235, 0.92);
-  border: 1px solid #cbc6ba;
-  padding: 10px 16px;
-  color: #77736b;
-  font-family: Georgia, serif;
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  cursor: pointer;
-}
-
-#music-button:hover {
-  opacity: 0.6;
-}
+  
   <style>
     * {
       box-sizing: border-box;
@@ -188,6 +171,7 @@
     <div class="credit">
       TEXT BY VIOLET
     </div>
+    </main>
 <audio id="bgm" loop>
   <source src="river.mp3" type="audio/mpeg">
 </audio>
@@ -243,9 +227,6 @@
     sessionStorage.setItem("bgmTime", bgm.currentTime);
     sessionStorage.setItem("bgmPlaying", !bgm.paused);
   });
-</script>
-</body>
-</html>
 </script>
 </body>
 </html>
