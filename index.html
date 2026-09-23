@@ -160,6 +160,27 @@
         margin-top: 8px;
       }
     }
+    #music-button {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 1000;
+
+  background: rgba(245, 242, 235, 0.92);
+  border: 1px solid #cbc6ba;
+  padding: 10px 16px;
+
+  color: #77736b;
+  font-family: Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+
+  cursor: pointer;
+}
+
+#music-button:hover {
+  opacity: 0.6;
+}
   </style>
   
 <meta property="og:title" content="尚未裝訂｜Violet's Literature">
@@ -257,6 +278,25 @@
   <footer>
     TEXT & PHOTOGRAPHY BY VIOLET
   </footer>
+<audio id="bgm" loop>
+  <source src="river.mp3" type="audio/mpeg">
+</audio>
 
+<button id="music-button" onclick="toggleMusic()">♪ PLAY</button>
+
+<script>
+  const bgm = document.getElementById("bgm");
+  const musicButton = document.getElementById("music-button");
+
+  function toggleMusic() {
+    if (bgm.paused) {
+      bgm.play();
+      musicButton.textContent = "Ⅱ PAUSE";
+    } else {
+      bgm.pause();
+      musicButton.textContent = "♪ PLAY";
+    }
+  }
+</script>
 </body>
 </html>
