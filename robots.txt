@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://violet720.github.io/Violet-s-Literature/sitemap.xml
